@@ -123,7 +123,7 @@ class AnalogClockView : View {
         if (isSecond){ // drawing second hand by red color
             paint!!.color = Color.RED
         }
-        if (isHour) { // changing the thickness of the clockwise
+        if (isHour) { // changing the thickness of the hour hand
             paint!!.strokeWidth = 10f
         }
         canvas.drawLine(
