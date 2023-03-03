@@ -104,10 +104,11 @@ class AnalogClockView : View {
     private fun drawHands(canvas: Canvas) {
         val c = Calendar.getInstance()
         var hour = c[Calendar.HOUR_OF_DAY].toFloat()
-        Log.i("Date", "${c.get(Calendar.HOUR_OF_DAY)} " +
-                "|| ${c.get(Calendar.MINUTE)} || ${c.get(Calendar.SECOND)}")
-        hour = if (hour >= 12) hour - 12 else hour
-        drawHand(canvas, (hour + c[Calendar.MINUTE] / 60) * 5.toDouble(),
+
+        hour = if (hour > 12) hour - 12 else hour
+        drawHand(
+            canvas = canvas,
+            time = (hour.toDouble() + c[Calendar.MINUTE].toDouble() / 60) * 5 ,
             isHour = true,
             isSecond = false
         )
